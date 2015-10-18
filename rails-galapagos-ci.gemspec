@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rails/galapagos/ci/version'
+require 'rails_galapagos_ci/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rails-galapagos-ci"
-  spec.version       = Rails::Galapagos::Ci::VERSION
+  spec.version       = RailsGalapagosCi::VERSION
   spec.authors       = ["koudenpa"]
   spec.email         = ["koudenpa@hotmail.com"]
 
@@ -30,4 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
+
+  spec.add_runtime_dependency 'rails-erd'
+  spec.add_runtime_dependency 'migration_comments'
 end
