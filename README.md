@@ -1,14 +1,13 @@
-# Rails::Galapagos::Ci
+# RailsGalapagosCi
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rails/galapagos/ci`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby on Rails で日本的なガラパゴスなCIを行うためのユーティリティ(を作っていく予定)です。
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your "Rails" application's Gemfile:
 
 ```ruby
+# group :development do
 gem 'rails-galapagos-ci'
 ```
 
@@ -20,9 +19,22 @@ Or install it yourself as:
 
     $ gem install rails-galapagos-ci
 
+ER図出力を行う場合は、以下の依存関係をインストールしてください。
+
+    $ sudo yum install graphviz
+    $ sudo yum install ipa-*-fonts
+
 ## Usage
 
-TODO: Write usage instructions here
+### gci:erd Task
+
+[MigrationComments](https://github.com/pinnymz/migration_comments) で付与したコメントを論理名として適用したER図を出力します。
+
+[Rails ERD](https://github.com/voormedia/rails-erd) をラップしたものですので、出力オプションも同様です。
+
+    $  rake gci:erd
+    $  rake gci:erd filename=hogehoge-erd
+    $  rake gci:erd filename=hogehoge-erd filetype=svg
 
 ## Development
 
@@ -34,8 +46,12 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rails-galapagos-ci. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
-
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+## Thanks
+
+* [Rails ERD](https://github.com/voormedia/rails-erd)
+* [MigrationComments](https://github.com/pinnymz/migration_comments)
+* [Graphviz](http://www.graphviz.org/)
