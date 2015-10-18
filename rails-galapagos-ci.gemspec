@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
 
+  spec.add_runtime_dependency 'rails'
   spec.add_runtime_dependency 'rails-erd'
   spec.add_runtime_dependency 'migration_comments'
 end

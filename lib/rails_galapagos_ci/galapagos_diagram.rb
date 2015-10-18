@@ -5,7 +5,7 @@ module RailsGalapagosCi
 
     def initialize(domain, options = {})
       super(domain, options)
-      @options = RailsGalapagosCi.options.merge(@options).merge(@options)
+      @options = RailsGalapagosCi.options.merge(@options).merge(options)
       @domain.inject_comment()
     end
 
@@ -88,7 +88,7 @@ module RailsGalapagosCi
       @db_comment = db_comment
       return @db_comment unless @db_comment
 
-      # XXX 区切り文字変える
+      # XXX いい感じに区切る(空白文字だと英語圏に対応できないので、タブと改行にした方がいい？)
       @r_name = /[^\s]*/.match(db_comment)[0]
 
       m = /[\s]+(.*)/.match(db_comment)
@@ -138,7 +138,7 @@ module RailsERD
         end
       end
 
-      # Override 必須の下付き*を通常の*に変更
+      # Override: 必須の下付き*を通常の*に変更した。
       def type_description
         type.to_s.tap do |desc|
           desc << " #{limit_description}" if limit_description
