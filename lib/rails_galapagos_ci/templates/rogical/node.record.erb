@@ -1,0 +1,4 @@
+<% if options.orientation == :vertical %>{<% end %><%= entity.r_name %><% if attributes.any? %>
+|<%  attributes.each do |attribute| %><%=
+       attribute.r_name %> (<%= attribute.type_description %>)
+<%   end %><% end %><% if options.orientation == :vertical %>}<% end %>
