@@ -1,3 +1,18 @@
+require "rails_erd/config"
+
+# XXX RailsERD::Diagram::Graphviz がメソッド直撃で参照しているので
+# 頑張るなら RailsERD::Diagram::Graphviz 自体をフォークして、設定値としてフォントを受け取った方がよさそう
+# XXX Webページに埋めるSVG目的だと、IPAフォントはあまり普及していない気がする
+module RailsERD
+  class Config
+    def self.font_names_based_on_os
+      { normal: "IPA Pゴシック",
+        bold:   "IPA Pゴシック",
+        italic: "IPA Pゴシック" }
+    end
+  end
+end
+
 require "rails_erd/diagram/graphviz"
 
 module RailsGalapagosCi
