@@ -152,6 +152,14 @@ module RailsERD
           attribute.db_comment = db_column_comments[attribute.name.to_sym]
         end
       end
+    end
+  end
+end
+
+module RailsERD
+  class Domain
+    class Attribute
+      include RailsGalapagosCi::Commentable
 
       # Override: 必須の下付き*を通常の*に変更した。
       def type_description
@@ -163,14 +171,6 @@ module RailsERD
           desc << " FK" if foreign_key?
         end
       end
-    end
-  end
-end
-
-module RailsERD
-  class Domain
-    class Attribute
-      include RailsGalapagosCi::Commentable
     end
   end
 end
